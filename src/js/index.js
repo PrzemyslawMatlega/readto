@@ -2,7 +2,9 @@ import Search from './models/Search';
 import * as searchView from './views/searchView';
 import Likes from './models/Likes';
 import * as likesView from './views/likesView';
-import {elements} from './views/base';
+import {
+    elements
+} from './views/base';
 
 
 
@@ -23,11 +25,10 @@ const ctrlSearch = async (page = 0) => {
     let topic;
     if (page == 0) {
         topic = searchView.getInput();
-        if (topic!= '') {
-            state.search = new Search(topic, page=1, '');
+        if (topic != '') {
+            state.search = new Search(topic, page = 1, '');
         }
-    } 
-    else {
+    } else {
         state.search.page = page;
     }
     await state.search.szukaj();
@@ -37,7 +38,7 @@ const ctrlSearch = async (page = 0) => {
 
 
 const ctrlSearchTrend = async (tag) => {
-    state.search = new Search('',0, tag);
+    state.search = new Search('', 0, tag);
     await state.search.searchTrend();
     newSearch(0);
 
@@ -56,18 +57,17 @@ const controlLike = (likeUrl) => {
         return el.url == likeUrl
     })
 
-    if(!state.like) state.like= new Likes();
+    if (!state.like) state.like = new Likes();
 
-    if(!state.like.isLiked(likeUrl)){
-        state.like.addLike(liked.title,liked.urlToImage,likeUrl);
+    if (!state.like.isLiked(likeUrl)) {
+        state.like.addLike(liked.title, liked.urlToImage, likeUrl);
         // likesView.renderLike(liked.title,liked.urlToImage,likeUrl);
-    }
-    else{
-        state.like.deleteLike(likeUrl) 
+    } else {
+        state.like.deleteLike(likeUrl)
         // likesView.delLike(likeUrl);
 
     }
-    
+
 }
 
 elements.content.addEventListener('click', e => {
@@ -83,14 +83,35 @@ elements.content.addEventListener('click', e => {
 elements.navbuttons.addEventListener('click', e => {
     const el = e.target.closest('#content__buttons-btn');
     const goToPage = parseInt(el.dataset.goto, 10);
-   
+
     ctrlSearch(goToPage);
 
 });
 
+// ---------------Scroll hide/show navbar -----------------------------
+
+let scrollPos = 0;
+
+window.addEventListener('scroll', e => {
+
+    if ((document.body.getBoundingClientRect()).top > scrollPos){
+
+        elements.search_main.classList.remove('unvisible')
+    }
+    else{
+        elements.search_main.classList.add('unvisible');
+    }
+
+    scrollPos = ((document.body.getBoundingClientRect()).top );
+
+
+})
+
+
+
 // document.querySelector('.fire').addEventListener('click', e => {
-    
-    
+
+
 //     const add = document.querySelector('.trends')
 //     if (add.style.display === "none") {
 //         add.style.display = "block";
@@ -117,15 +138,5 @@ elements.navbuttons.addEventListener('click', e => {
 
 // document.querySelector('.closeBtn').addEventListener('click', e => {
 //     document.getElementById('mySidenav').style.width = "0px";
-
-// });
-
-
-
-// document.querySelector('.sideArt').addEventListener('click',e => {
-//     let likedUrl = e.target.closest('.closeImg')
-//     likedUrl = likedUrl.dataset.url;
-//     controlLike(likedUrl);
-//     searchView.toggleLikeBtn(likedUrl);
 
 // });

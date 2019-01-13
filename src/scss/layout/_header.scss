@@ -1,18 +1,21 @@
 header{
     grid-column: full-start/full-end;
-    height: 25vh;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.952);
     display: grid;
-    grid-template-rows: 40% 60%;
-    align-items: center;
+    grid-template-rows: 8rem min-content;
     justify-items: center;
+    align-items: center;
     border-bottom: 1px solid black;
     position: fixed;
 }
 
 .logo{
-
+    // height: 10vh;
+     margin-top: -3rem;
+    // display: flex;
+    // align-items: flex-start;
+    // justify-content: center;
     &__text{
         font-family: $font-logo;
         font-size: 3.5rem;
@@ -37,8 +40,14 @@ header{
 }
 
 .search{
+    height: 15vh;
+    padding-bottom: 2rem;
     width: 75%;
-    
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s all ease;
     &__form{
         position: relative;
         &-field{
@@ -57,7 +66,6 @@ header{
         &-button{
             position: absolute;
             z-index: 5;
-            // ZASTANOWIC SIE NA 50Y TRANSITION
             top:0.8rem;
             right: 1rem;
             background-color: transparent;
@@ -71,4 +79,11 @@ header{
             }
         }
     }
+}
+
+.unvisible{
+    opacity:0;
+    height: 0;
+    padding-bottom:0;
+
 }
