@@ -70,11 +70,35 @@ const controlLike = (likeUrl) => {
 
 }
 
+ 
+const navbarProgres = (progresNum) => {
+    if (progresNum<6){
+
+        if( elements.header.classList.contains(`progres-${progresNum+1}`) ){
+            elements.header.classList.toggle(`progres-${progresNum+1}`) 
+        }
+        else{
+          
+        }
+        if(progresNum ==5 ){
+            elements.header.classList.add(`progres-${progresNum}`) 
+            elements.header.classList.remove(`progres-${progresNum-1}`)
+        }
+        else{
+            
+            elements.header.classList.toggle(`progres-${progresNum}`) 
+            elements.header.classList.remove(`progres-${progresNum-1}`)
+        }
+    }
+}
+
 elements.content.addEventListener('click', e => {
     let likeUrl = e.target.closest('.article__like')
     likeUrl = likeUrl.dataset.id;
     controlLike(likeUrl);
     searchView.toggleLikeBtn(likeUrl);
+    navbarProgres(state.like.likes.length);
+    
 });
 
 // --------------------------EVENT LISTENERS -------------------------------
