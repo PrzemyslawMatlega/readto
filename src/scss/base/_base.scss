@@ -1,0 +1,64 @@
+// FONT VARIABLES
+
+$font-logo:  'Source Sans Pro', sans-serif;
+$font-one:'ABeeZee', sans-serif;
+$font-two: 'Alegreya', serif;
+
+
+// RESPONSIVE BREAKPOINTS
+$bp-4k:160em;
+$bp-FH: 120em;
+$bp-XXL: 90em; // 1440px
+$bp-XL: 75em; // 1200px
+$bp-L: 64em; // 1024px
+$bp-M: 56.25em; // 900px;
+$bp-S: 43.75em; // 700px;
+$bp-XS:30em; // 480
+$bp-XXS: 23.75em;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; // 1rem = 10px, 10px/16px = 62.5%
+    scroll-behavior: smooth;
+
+    // @media (min-width: $bp-4k) {
+    //     font-size: 75%;
+    // }
+
+    // @media (max-width: $bp-XL) {
+    //     font-size: 56.25%;
+    // }
+
+    // @media (max-width: $bp-L) {
+    //     font-size: 50%;
+    // }
+    // @media (max-width: $bp-M) {
+    //     font-size: 50%;
+    // }
+    // @media (max-width: $bp-S) {
+    //     font-size: 43.75%;
+    // }
+
+
+}
+
+
+
+
+.container {
+    display: grid;
+    grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 15rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+    grid-template-rows: max-content max-content ;
+
+}

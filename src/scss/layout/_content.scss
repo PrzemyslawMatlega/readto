@@ -1,0 +1,101 @@
+.content{ 
+    grid-column: full-start/full-end;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr max-content;
+
+    &__main{
+        display: grid;
+        grid-template-columns: 100%;
+
+        grid-template-rows: reapeat(20,1fr)
+    }
+
+    &__buttons{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            
+            &-prev{
+                
+                justify-self: start;
+                grid-column: 1/2;
+                margin-left: 3rem;
+            }
+            &-next{
+                justify-self: end;
+                grid-column: 2/3;
+                margin-right: 3rem;
+            }
+            & >*{
+                width: 8rem;
+                height: 8rem;
+                fill: grey;
+               cursor: pointer;
+            }
+
+   }
+    
+}
+
+.article{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+
+    &__photo{ 
+        width: 100%;
+        &-img{
+            width: 100%;
+            max-height: 33vh; 
+            object-fit: cover;
+        }
+    }
+
+
+    &__title{
+        margin: 1rem 1rem;
+        font-family: $font-one;
+        text-align: center;
+        &> h2{
+            font-size: 2rem;
+
+        }
+    }
+
+
+    &__desc{
+        margin: 0 4vw;
+        text-align: center;
+        font-family: $font-two;
+        font-size: 1.8rem;
+    }   
+
+
+    &__like{
+        text-align: center;
+        margin: 2rem 0rem;
+      
+        & :first-child{
+            width: 6rem;
+            height: 6rem;
+         // to serce jeszcze troche do robienia   
+        }
+        &-btn{
+            transition: 0.5s all ease;
+            fill: gray;
+            
+        }
+    }
+}
+
+.gold{
+    transition: 0.5s all ease;
+    fill: gold;
+    animation: beat .25s 2 alternate;
+	transform-origin: center;
+
+}
+
+@keyframes beat{
+	to { transform: scale(0.9); }
+}

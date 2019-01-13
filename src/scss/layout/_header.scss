@@ -1,0 +1,74 @@
+header{
+    grid-column: full-start/full-end;
+    height: 25vh;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.952);
+    display: grid;
+    grid-template-rows: 40% 60%;
+    align-items: center;
+    justify-items: center;
+    border-bottom: 1px solid black;
+    position: fixed;
+}
+
+.logo{
+
+    &__text{
+        font-family: $font-logo;
+        font-size: 3.5rem;
+        letter-spacing: 1px;
+        transform: rotate(-4deg);
+        position: relative;
+        
+
+        &::after{
+            content: '';
+            position: absolute;
+            width: 120%;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 0.5rem;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+  
+        }
+    }
+}
+
+.search{
+    width: 75%;
+    
+    &__form{
+        position: relative;
+        &-field{
+            height: 4rem;
+            width: 100%;
+            font-family: $font-one;
+            font-size: 2rem;
+            border-radius: 5px;
+            padding: 0rem 4rem;
+            outline: none;
+            border:1px solid rgba(0, 0, 0, 0.377);
+            text-align: center;
+
+        }
+
+        &-button{
+            position: absolute;
+            z-index: 5;
+            // ZASTANOWIC SIE NA 50Y TRANSITION
+            top:0.8rem;
+            right: 1rem;
+            background-color: transparent;
+            border:none;
+            cursor: pointer;
+           
+            &-icon{
+                width: 2.5rem;
+                height: 2.5rem;
+                
+            }
+        }
+    }
+}
