@@ -4,6 +4,6 @@ export const elements ={
     searchField: document.querySelector('.search__form-field'),
     navbuttons: document.querySelector('.content__buttons'),
     content: document.querySelector('.content__main'),
-    header: document.querySelector('.header')
-
+    header: document.querySelector('.header'),
+    logo: document.querySelector('.logo')
 }

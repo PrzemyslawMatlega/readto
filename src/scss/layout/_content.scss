@@ -3,6 +3,7 @@
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 1fr max-content;
+    margin-top: 20vh;
 
     &__main{
         display: grid;

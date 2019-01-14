@@ -10,8 +10,8 @@ import {
 
 export const state = {};
 
-// CONTROLER SZUKANIA 
-// 
+//------------ SEARCH CONTROLER ---------------  
+
 const newSearch = (page) => {
 
     searchView.clearResult();
@@ -77,15 +77,14 @@ const navbarProgres = (progresNum) => {
         if( elements.header.classList.contains(`progres-${progresNum+1}`) ){
             elements.header.classList.toggle(`progres-${progresNum+1}`) 
         }
-        else{
-          
-        }
-        if(progresNum ==5 ){
+        else{ }
+        if(progresNum == 5 ){
             elements.header.classList.add(`progres-${progresNum}`) 
             elements.header.classList.remove(`progres-${progresNum-1}`)
+            elements.logo.classList.add('shake')
         }
         else{
-            
+            elements.logo.classList.remove('shake')
             elements.header.classList.toggle(`progres-${progresNum}`) 
             elements.header.classList.remove(`progres-${progresNum-1}`)
         }
@@ -107,7 +106,6 @@ elements.content.addEventListener('click', e => {
 elements.navbuttons.addEventListener('click', e => {
     const el = e.target.closest('#content__buttons-btn');
     const goToPage = parseInt(el.dataset.goto, 10);
-
     ctrlSearch(goToPage);
 
 });
@@ -119,7 +117,6 @@ let scrollPos = 0;
 window.addEventListener('scroll', e => {
 
     if ((document.body.getBoundingClientRect()).top > scrollPos){
-
         elements.search_main.classList.remove('unvisible')
     }
     else{
@@ -128,6 +125,16 @@ window.addEventListener('scroll', e => {
 
     scrollPos = ((document.body.getBoundingClientRect()).top );
 
+
+})
+
+
+// ------------- Sidebar Controler ------------ 
+
+elements.logo.addEventListener('click', () =>{
+        if(state.like.likes.length>4){
+            
+        }
 
 })
 
