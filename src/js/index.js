@@ -37,12 +37,12 @@ const ctrlSearch = async (page = 0) => {
 }
 
 
-const ctrlSearchTrend = async (tag) => {
-    state.search = new Search('', 0, tag);
-    await state.search.searchTrend();
-    newSearch(0);
+// const ctrlSearchTrend = async (tag) => {
+//     state.search = new Search('', 0, tag);
+//     await state.search.searchTrend();
+//     newSearch(0);
 
-}
+// }
 elements.search.addEventListener('submit', e => {
     e.preventDefault();
     ctrlSearch();
@@ -61,10 +61,10 @@ const controlLike = (likeUrl) => {
 
     if (!state.like.isLiked(likeUrl)) {
         state.like.addLike(liked.title, liked.urlToImage, likeUrl);
-        // likesView.renderLike(liked.title,liked.urlToImage,likeUrl);
+         likesView.renderLiked(liked.title,liked.urlToImage,likeUrl);
     } else {
         state.like.deleteLike(likeUrl)
-        // likesView.delLike(likeUrl);
+        likesView.removeLiked(likeUrl);
 
     }
 
@@ -116,58 +116,31 @@ let scrollPos = 0;
 
 window.addEventListener('scroll', e => {
 
-    if ((document.body.getBoundingClientRect()).top > scrollPos){
-        elements.search_main.classList.remove('unvisible')
+    if (!elements.sideBar.classList.contains('fullScreen')){
+        if ((document.body.getBoundingClientRect()).top > scrollPos){
+            elements.search_main.classList.remove('unvisible')
+        }
+        else{
+            elements.search_main.classList.add('unvisible');
+        }
+    
+        scrollPos = ((document.body.getBoundingClientRect()).top );
     }
-    else{
-        elements.search_main.classList.add('unvisible');
-    }
-
-    scrollPos = ((document.body.getBoundingClientRect()).top );
 
 
 })
-
 
 // ------------- Sidebar Controler ------------ 
 
 elements.logo.addEventListener('click', () =>{
         if(state.like.likes.length>4){
+            elements.search_main.classList.add('unvisible');
+            elements.sideBar.classList.toggle('fullScreen');
+            elements.content__main.classList.toggle('nondisplay');
             
+           
+
         }
 
 })
 
-
-
-// document.querySelector('.fire').addEventListener('click', e => {
-
-
-//     const add = document.querySelector('.trends')
-//     if (add.style.display === "none") {
-//         add.style.display = "block";
-//         document.querySelector('.fireImg').setAttribute('src','./img/burn.png' )
-//     } else {
-//         add.style.display = "none";
-//         document.querySelector('.fireImg').setAttribute('src','./img/burn-bw.png' )
-//     }
-
-
-// })
-
-// document.querySelector('.trends').addEventListener('click', e => {
-//     const tags = e.target.closest('.trend')
-//     const tag = tags.dataset.type;
-//     ctrlSearchTrend(tag);
-// });
-
-
-// document.querySelector('.openLikes').addEventListener('click', e => {
-//     document.getElementById('mySidenav').style.width = "500px";
-
-// });
-
-// document.querySelector('.closeBtn').addEventListener('click', e => {
-//     document.getElementById('mySidenav').style.width = "0px";
-
-// });

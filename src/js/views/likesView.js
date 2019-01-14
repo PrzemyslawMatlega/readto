@@ -1,18 +1,23 @@
+import{elements} from './base';
 
-export const renderLike = (title,urlImage,url) => {
+export const renderLiked = (title,urlImage,url) => {
     const newLike = `
-        <div class ="liked" href="${url}"> 
-            <div class ="likedImg"> 
+        <div class ="sideBar__article" href="${url}"> 
+        
+            <div class ="sideBar__article-main"> 
                 <img src="${urlImage}">
-                <img src="../img/close.png" class="closeImg" data-url="${url}"> 
+                <svg>
+                <use xlink:href="/img/Sprite.svg#heart" data-url="${url}" class="article__like-btn&#32;gold"}></use>
+                </svg>
             </div>
-            <p> ${title} </p>
+            <div class ="sideBar__article-text"> ${title} </div>
+        
         </div> 
     `
-    document.querySelector(".sideArt").insertAdjacentHTML('afterbegin',newLike);
+    elements.sideBar.insertAdjacentHTML('beforeend',newLike);
 
 }
- export const delLike = (url) => {
+ export const removeLiked = (url) => {
       const el = document.querySelector(`.liked[href*="${url}"]`);
       if (el) el.remove();
 

@@ -8,7 +8,6 @@
     &__main{
         display: grid;
         grid-template-columns: 100%;
-
         grid-template-rows: reapeat(20,1fr)
     }
 
@@ -17,7 +16,6 @@
             grid-template-columns: 1fr 1fr;
             
             &-prev{
-                
                 justify-self: start;
                 grid-column: 1/2;
                 margin-left: 3rem;
@@ -75,11 +73,12 @@
     &__like{
         text-align: center;
         margin: 2rem 0rem;
+        cursor: pointer;
       
         & :first-child{
             width: 6rem;
             height: 6rem;
-         // to serce jeszcze troche do robienia   
+         
         }
         &-btn{
             transition: 0.5s all ease;

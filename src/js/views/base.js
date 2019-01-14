@@ -3,7 +3,9 @@ export const elements ={
     search: document.querySelector('.search__form'),
     searchField: document.querySelector('.search__form-field'),
     navbuttons: document.querySelector('.content__buttons'),
+    content__main: document.querySelector('.content'),
     content: document.querySelector('.content__main'),
     header: document.querySelector('.header'),
-    logo: document.querySelector('.logo')
+    logo: document.querySelector('.logo'),
+    sideBar: document.querySelector('.sideBar')
 }

@@ -21,7 +21,7 @@ const renderArticle = (article) => {
   if (!state.like) state.like = new Likes();
   
   const isL = state.like.isLiked(article.url);
-  console.log(isL);
+
   const art = `
   
       <div class ="article">
@@ -75,7 +75,7 @@ const renderButtons = (page) => {
 
 export const render = (article, page) => {
   article.forEach(renderArticle);
-  console.log(page);
+
   if (page != 0) {
     renderButtons(page);
   }
