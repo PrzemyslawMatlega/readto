@@ -10,14 +10,7 @@
         grid-template-columns: 100%;
         grid-template-rows: reapeat(20, 1fr);
 
-        @media (min-width: $M) {}
-
-        @media (min-width: $L) {
-            grid-template-columns: 45% 45%;
-            grid-column-gap: 5%;
-            justify-content: center;
-
-        }
+       @include articleGrid;
     }
 
     &__buttons {
@@ -68,60 +61,59 @@
             }
 
             @media (min-width: $L) {
-                max-height: 33vh;
+                height: 33vh;
             }
 
         }
     }
 
-    &__content{
+    &__content {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         height: 100%;
-
-        
     }
-            &__title {
-                margin: 1rem 1rem;
-                font-family: $font-one;
-                text-align: center;
-        
-                &>h2 {
-                    font-size: 2rem;
-        
-                }
-            }
-        
-        
-            &__desc {
-                margin: 0 4vw;
-                text-align: center;
-                font-family: $font-two;
-                font-size: 1.8rem;
-            }
-        
-            
-    
-        &__like {
-            text-align: center;
-            margin: 2rem 0rem;
-            cursor: pointer;
-    
-            & :first-child {
-                width: 6rem;
-                height: 6rem;
-    
-            }
-    
-            &-btn {
-                transition: 0.5s all ease;
-                fill: gray;
-    
-            }
+
+    &__title {
+        margin: 1rem 1rem;
+        font-family: $font-one;
+        text-align: center;
+
+        &>h2 {
+            font-size: 2rem;
+
         }
     }
-    
+
+
+    &__desc {
+        margin: 0 4vw;
+        text-align: center;
+        font-family: $font-two;
+        font-size: 1.8rem;
+    }
+
+
+
+    &__like {
+        text-align: center;
+        margin: 2rem 0rem;
+        cursor: pointer;
+
+        & :first-child {
+            width: 6rem;
+            height: 6rem;
+
+        }
+
+        &-btn {
+            transition: 0.5s all ease;
+            fill: gray;
+
+        }
+    }
+}
+
 .gold {
     transition: 0.5s all ease;
     fill: gold;

@@ -4,13 +4,14 @@ export const renderLiked = (title,urlImage,url) => {
     const newLike = `
         <div class ="sideBar__article" href="${url}"> 
         
-            <div class ="sideBar__article-main"> 
-                <img src="${urlImage}">
-                <svg>
-                <use xlink:href="/img/Sprite.svg#heart" data-url="${url}" class="article__like-btn&#32;gold"}></use>
-                </svg>
-            </div>
-            <div class ="sideBar__article-text"> ${title} </div>
+            <div class="overlay">
+                <svg  class="overlay__like">
+                    <use xlink:href="/img/Sprite.svg#heart" data-url="${url}" class="article__like-btn&#32;gold"}></use>
+                    </svg>
+            
+                <div class ="overlay__title"> ${title} </div>
+            </div>    
+            <img src="${urlImage}">
         
         </div> 
     `
