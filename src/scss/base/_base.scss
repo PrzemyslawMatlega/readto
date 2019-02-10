@@ -6,16 +6,10 @@ $font-two: 'Alegreya', serif;
 
 
 // RESPONSIVE BREAKPOINTS
-$bp-4k:160em;
-$bp-FH: 120em;
-$bp-XXL: 90em; // 1440px
-$bp-XL: 75em; // 1200px
-$bp-L: 64em; // 1024px
-$bp-M: 56.25em; // 900px;
-$bp-S: 43.75em; // 700px;
-$bp-XS:30em; // 480
-$bp-XXS: 23.75em;
-
+$XL: 1200px; 
+$L : 900px;
+$M : 600px;
+$S : 480px;
 * {
     margin: 0;
     padding: 0;
@@ -31,7 +25,7 @@ $bp-XXS: 23.75em;
     width: 10px;
   }
   
-  /* Track */
+ 
   ::-webkit-scrollbar-track {
     background: #f1f1f1; 
   }
@@ -43,20 +37,6 @@ html {
 
     // @media (min-width: $bp-4k) {
     //     font-size: 75%;
-    // }
-
-    // @media (max-width: $bp-XL) {
-    //     font-size: 56.25%;
-    // }
-
-    // @media (max-width: $bp-L) {
-    //     font-size: 50%;
-    // }
-    // @media (max-width: $bp-M) {
-    //     font-size: 50%;
-    // }
-    // @media (max-width: $bp-S) {
-    //     font-size: 43.75%;
     // }
 
 

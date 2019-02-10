@@ -28,6 +28,7 @@ const renderArticle = (article) => {
         <div class = "article__photo">   
            <img src="${article.urlToImage}" class="article__photo-img" alt="">
         </div> 
+        <div class ="article__content">
         <div class="article__title" href="${article.url}">
             <h2> ${article.title}</h2>
         </div>
@@ -38,7 +39,8 @@ const renderArticle = (article) => {
             <svg>
                <use xlink:href="/img/Sprite.svg#heart" id="${article.url}" class=${isL ?'article__like-btn&#32;gold': 'article__like-btn'}></use>
             </svg>
-        </div>        
+        </div>       
+      </div>
       </div>
         
         `;
@@ -74,7 +76,7 @@ const renderButtons = (page) => {
 
 
 export const render = (article, page) => {
-  article.forEach(renderArticle);
+  article.slice(0,12).forEach(renderArticle);
 
   if (page != 0) {
     renderButtons(page);
