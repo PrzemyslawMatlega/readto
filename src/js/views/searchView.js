@@ -33,7 +33,7 @@ const renderArticle = (article) => {
             <h2> ${article.title}</h2>
         </div>
         <div class="article__desc"> 
-        ${article.description}
+        <p>${article.description}</p>
         </div>       
         <div class="article__like" data-id=${article.url}>      
             <svg>
