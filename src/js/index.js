@@ -19,18 +19,30 @@ const newSearch = (page) => {
 
 }
 
-const ctrlSearch = async (page = 0) => {
-    let topic;
-    if (page == 0) {
-        topic = searchView.getInput();
-        if (topic != '') {
-            state.search = new Search(topic, page = 1);
+const ctrlSearch = async (page = 0, trashClick = false) => {
+        let topic;
+        if(trashClick){
+            await state.search.searchNews();
+            newSearch(page);
         }
-    } else {
-        state.search.page = page;
-    }
-    await state.search.searchNews();
-    newSearch(page);
+        else{
+            if (page == 0) {
+                topic = searchView.getInput();
+
+                if (topic != '') {
+                    state.search = new Search(topic, page = 1);
+                }
+                
+            } 
+            else {
+                state.search.page = page;
+            }
+
+            await state.search.searchNews();
+            newSearch(page);
+
+        }
+
 
 }
 
@@ -92,8 +104,21 @@ elements.content.addEventListener('click', e => {
     navbarProgres(state.like.likes.length);
     
 });
+// -------------- Cleaning on trash click ------------
+elements.trash.addEventListener('click', e =>{
 
-// --------------------------EVENT LISTENERS -------------------------------
+    state.like.likes.forEach( el =>{
+        likesView.removeLiked(el.url);
+    });
+
+    delete state.like;
+    ctrlSearch(0, true);
+    elements.header.classList.remove(`progres-5`)    
+    likesView.toggleSideBar();
+
+})
+
+// --------------------------Pagination-------------------------------
 
 
 elements.navbuttons.addEventListener('click', e => {
@@ -107,7 +132,7 @@ elements.navbuttons.addEventListener('click', e => {
 
 let scrollPos = 0;
 
-window.addEventListener('scroll', e => {
+window.addEventListener('scroll', () => {
 
     if (!elements.sideBar.classList.contains('fullScreen')){
         if ((document.body.getBoundingClientRect()).top > scrollPos){
@@ -128,11 +153,7 @@ window.addEventListener('scroll', e => {
 elements.logo.addEventListener('click', () =>{
         if(state.like.likes.length>4){
             elements.search_main.classList.add('unvisible');
-            elements.sideBar.classList.toggle('fullScreen');
-            elements.content__main.classList.toggle('nondisplay');
-            
-           
-
+            likesView.toggleSideBar();
         }
 
 })

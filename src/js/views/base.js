@@ -7,5 +7,6 @@ export const elements ={
     content: document.querySelector('.content__main'),
     header: document.querySelector('.header'),
     logo: document.querySelector('.logo'),
-    sideBar: document.querySelector('.sideBar')
+    sideBar: document.querySelector('.sideBar'),
+    trash : document.querySelector('.sideBar__trash')
 }

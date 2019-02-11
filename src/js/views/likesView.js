@@ -20,8 +20,14 @@ export const renderLiked = (title,urlImage,url) => {
 
 }
  export const removeLiked = (url) => {
-      const el = document.querySelector(`.[href*="${url}"]`);
+      const el = document.querySelector(`.sideBar__article[href*="${url}"]`);
       if (el) el.remove();
 
     
+ }
+
+ export const toggleSideBar = () =>{
+    elements.sideBar.classList.toggle('fullScreen');
+    elements.content__main.classList.toggle('nondisplay');
+
  }
