@@ -1,9 +1,11 @@
 .content {
     grid-column: full-start/full-end;
+    grid-row: 2/3;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 1fr max-content;
-    margin-top: 20vh;
+    margin-top:13rem;
+ 
 
     &__main {
         display: grid;
@@ -115,7 +117,7 @@
 }
 
 .steps{
-    margin-top:15vh;
+   
     height:50vh;
     width: 100%;
     display: flex;
@@ -167,6 +169,7 @@
 
 .beforeSearch{
     grid-template-columns: 1fr;
+    overflow-x: hidden; 
 }
 
 

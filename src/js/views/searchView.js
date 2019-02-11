@@ -89,4 +89,5 @@ export const clear = () => {
   elements.searchField.value = ''
   elements.content.innerHTML = '';
   elements.navbuttons.innerHTML='';
+  elements.content.classList.remove('beforeSearch');
 }

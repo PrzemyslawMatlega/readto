@@ -131,16 +131,18 @@ elements.navbuttons.addEventListener('click', e => {
 let scrollPos = 0;
 
 window.addEventListener('scroll', () => {
+    if(state.search){
+        if (!elements.sideBar.classList.contains('fullScreen')){
+            if ((document.body.getBoundingClientRect()).top > scrollPos){
+                elements.search_main.classList.remove('unvisible')
+            }
+            else{
+                elements.search_main.classList.add('unvisible');
+            }
+        
+            scrollPos = ((document.body.getBoundingClientRect()).top );
+        }
 
-    if (!elements.sideBar.classList.contains('fullScreen')){
-        if ((document.body.getBoundingClientRect()).top > scrollPos){
-            elements.search_main.classList.remove('unvisible')
-        }
-        else{
-            elements.search_main.classList.add('unvisible');
-        }
-    
-        scrollPos = ((document.body.getBoundingClientRect()).top );
     }
 
 
