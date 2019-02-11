@@ -12,9 +12,7 @@ export const state = {};
 
 const newSearch = (page) => {
 
-    searchView.clearResult();
-    searchView.clearInput();
-    searchView.clearButtons();
+    searchView.clear();
     searchView.render(state.search.results, page)
 
 }
@@ -112,7 +110,7 @@ elements.trash.addEventListener('click', e =>{
     });
 
     delete state.like;
-    ctrlSearch(0, true);
+    ctrlSearch(1, true);
     elements.header.classList.remove(`progres-5`)    
     likesView.toggleSideBar();
 

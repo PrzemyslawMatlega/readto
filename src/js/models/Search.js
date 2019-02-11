@@ -9,6 +9,7 @@ export default class Search {
         try {
             let result = await fetch(`https://newsapi.org/v2/everything?q=${this.topic}&page=${this.page}&apiKey=f91802ab95c647b89548b25e8fdf1b05`);
             result = await result.json();
+            console.log(result);
             this.results = result.articles;
 
         } catch (error) {

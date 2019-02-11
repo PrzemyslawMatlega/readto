@@ -85,14 +85,8 @@ export const render = (article, page) => {
 
 export const getInput = () => elements.searchField.value;
 
-export const clearInput = () => {
+export const clear = () => {
   elements.searchField.value = ''
-};
-
-export const clearResult = () => {
   elements.content.innerHTML = '';
-};
-
-export const clearButtons = ()=>{
   elements.navbuttons.innerHTML='';
 }
