@@ -5,21 +5,22 @@ export const renderLiked = (title,urlImage,url) => {
         <div class ="sideBar__article" href="${url}"> 
         
             <div class="overlay">
-                <svg  class="overlay__like">
-                    <use xlink:href="/img/Sprite.svg#heart" data-url="${url}" class="article__like-btn&#32;gold"}></use>
-                    </svg>
-            
                 <div class ="overlay__title"> ${title} </div>
+                <a target="_blank" rel="noopener noreferrer" href="${url}"> 
+                    <svg  class="overlay__like">
+                        <use xlink:href="/img/Sprite.svg#book"}></use>
+                    </svg>
+                </a>
             </div>    
             <img src="${urlImage}">
         
         </div> 
     `
-    elements.sideBar.insertAdjacentHTML('beforeend',newLike);
+    elements.sideBar.insertAdjacentHTML('afterbegin',newLike);
 
 }
  export const removeLiked = (url) => {
-      const el = document.querySelector(`.liked[href*="${url}"]`);
+      const el = document.querySelector(`.[href*="${url}"]`);
       if (el) el.remove();
 
     

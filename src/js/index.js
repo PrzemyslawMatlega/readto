@@ -2,9 +2,7 @@ import Search from './models/Search';
 import * as searchView from './views/searchView';
 import Likes from './models/Likes';
 import * as likesView from './views/likesView';
-import {
-    elements
-} from './views/base';
+import { elements } from './views/base';
 
 
 
@@ -26,30 +24,23 @@ const ctrlSearch = async (page = 0) => {
     if (page == 0) {
         topic = searchView.getInput();
         if (topic != '') {
-            state.search = new Search(topic, page = 1, '');
+            state.search = new Search(topic, page = 1);
         }
     } else {
         state.search.page = page;
     }
-    await state.search.szukaj();
+    await state.search.searchNews();
     newSearch(page);
 
 }
 
 
-// const ctrlSearchTrend = async (tag) => {
-//     state.search = new Search('', 0, tag);
-//     await state.search.searchTrend();
-//     newSearch(0);
-
-// }
 elements.search.addEventListener('submit', e => {
     e.preventDefault();
     ctrlSearch();
-
 });
 
-// ---------------------------------LIKE CONTROLER------------------------------------
+// ---------------------------------LIKE CONTROLERS------------------------------------
 
 const controlLike = (likeUrl) => {
 
@@ -61,7 +52,7 @@ const controlLike = (likeUrl) => {
 
     if (!state.like.isLiked(likeUrl)) {
         state.like.addLike(liked.title, liked.urlToImage, likeUrl);
-         likesView.renderLiked(liked.title,liked.urlToImage,likeUrl);
+        likesView.renderLiked(liked.title,liked.urlToImage,likeUrl);
     } else {
         state.like.deleteLike(likeUrl)
         likesView.removeLiked(likeUrl);
@@ -70,6 +61,7 @@ const controlLike = (likeUrl) => {
 
 }
 
+
  
 const navbarProgres = (progresNum) => {
     if (progresNum<6){
@@ -77,7 +69,6 @@ const navbarProgres = (progresNum) => {
         if( elements.header.classList.contains(`progres-${progresNum+1}`) ){
             elements.header.classList.toggle(`progres-${progresNum+1}`) 
         }
-        else{ }
         if(progresNum == 5 ){
             elements.header.classList.add(`progres-${progresNum}`) 
             elements.header.classList.remove(`progres-${progresNum-1}`)
@@ -90,6 +81,8 @@ const navbarProgres = (progresNum) => {
         }
     }
 }
+
+
 
 elements.content.addEventListener('click', e => {
     let likeUrl = e.target.closest('.article__like')

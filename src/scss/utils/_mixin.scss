@@ -1,8 +1,8 @@
 @mixin articleGrid{
 
     @media (min-width: $L) {
-        grid-template-columns: 45% 45%;
-        grid-column-gap: 5%;
+        grid-template-columns: 46% 46%;
+        grid-column-gap: 3%;
         justify-content: center;
 
     }
@@ -12,4 +12,12 @@
         justify-content: center;
 
     }
+}
+
+@mixin center {
+
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
 }
