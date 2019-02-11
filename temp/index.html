@@ -31,20 +31,45 @@
         </header>
 
         <section class="content">
-            <div class="content__main"></div>
+            <div class="content__main beforeSearch">
+                <ul class="steps">
+                    <li class="steps__item steps__item--1">
+                        <p>1.Click on the input field, type something, press</p>
+                        <svg class="steps__icon">
+                            <use xlink:href="img/Sprite.svg#search-with-magnifier-sketch"></use>
+                        </svg>
+                    </li>
+                    <li class="steps__item steps__item--2">
+                      <p>  2. Collect five</p>
+                        <svg class="steps__icon">
+                            <use xlink:href="/img/Sprite.svg#heart" id="${article.url}" class=''></use>
+                        </svg>
+                        <p>Btw... You can collect it from different searches.</p>
+                    </li>
+                    <li class="steps__item steps__item--3">
+                        <p>3. Click on the toRead logo, then press</p>
+                        <svg class="steps__icon">
+                            <use xlink:href="/img/Sprite.svg#book"></use>
+                        </svg>
+                        <p>to read your article.</p>
+                    </li>
+                </ul>
+
+            </div>
             <div class="content__buttons"></div>
         </section>
-        <div class="sideBar"> 
+        
+        <div class="sideBar">
 
             <div class="sideBar__article">
                 <svg class="sideBar__trash">
                     <use xlink:href="/img/Sprite.svg#trash"></use>
-                </svg>    
-            </div>
-
+                </svg>
             </div>
 
         </div>
+
+    </div>
 
     </div>
     <script src="js/script.min.js"></script>
