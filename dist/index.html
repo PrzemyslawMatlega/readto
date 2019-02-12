@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=ABeeZee|Alegreya|Source+Sans+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <title>toRead.com</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <div class="logo__text">toRead.com</div>
+            </div>
+
+            <div class="search">
+                <form class="search__form">
+                    <input type="text" class="search__form-field" placeholder="search...">
+                    <button class="search__form-button">
+                        <svg class="search__form-button-icon">
+                            <use xlink:href="img/Sprite.svg#search-with-magnifier-sketch"></use>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </header>
+
+        <section class="content">
+            <div class="content__main beforeSearch">
+                <ul class="steps">
+                    <li class="steps__item steps__item--1">
+                        <p>1.Click on the input field, type something, press</p>
+                        <svg class="steps__icon">
+                            <use xlink:href="img/Sprite.svg#search-with-magnifier-sketch"></use>
+                        </svg>
+                    </li>
+                    <li class="steps__item steps__item--2">
+                      <p>  2. Collect five</p>
+                        <svg class="steps__icon">
+                            <use xlink:href="/img/Sprite.svg#heart" id="${article.url}" class=''></use>
+                        </svg>
+                        <p>Btw... You can collect it from different searches.</p>
+                    </li>
+                    <li class="steps__item steps__item--3">
+                        <p>3. Click on the toRead logo, then press</p>
+                        <svg class="steps__icon">
+                            <use xlink:href="/img/Sprite.svg#book"></use>
+                        </svg>
+                        <p>to read your article.</p>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="content__buttons"></div>
+        </section>
+        
+        <div class="sideBar">
+
+            <div class="sideBar__article">
+                <svg class="sideBar__trash">
+                    <use xlink:href="/img/Sprite.svg#trash"></use>
+                </svg>
+            </div>
+
+        </div>
+
+    </div>
+
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
